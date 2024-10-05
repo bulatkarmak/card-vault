@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package cardvault;
 
+option go_package = "../generated/";
+
 service UserService {
   rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
   rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse);
