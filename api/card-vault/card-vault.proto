@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package cardvault;
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse);
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
+  rpc CreateCard (CreateCardRequest) returns (CreateCardResponse);
+  rpc UpdateCard (UpdateCardRequest) returns (UpdateCardResponse);
+  rpc DeleteCard (DeleteCardRequest) returns (DeleteCardResponse);
+}
+
+message CreateUserRequest {
+  string name = 1;
+  string phone = 2;
+  string email = 3;
+  int32 age = 4;
+  string passport_number = 5;
+}
+
+message CreateUserResponse {
+  int64 id = 1;
+  string status = 2;
+}
+
+message UpdateUserRequest {
+  int64 id = 1;
+  string name = 2;
+  string phone = 3;
+  string email = 4;
+  int32 age = 5;
+  string passport_number = 6;
+}
+
+message UpdateUserResponse {
+  string status = 1;
+}
+
+message DeleteUserRequest {
+  int64 id = 1;
+}
+
+message DeleteUserResponse {
+  string status = 1;
+}
+
+message CreateCardRequest {
+  string card_number = 1;
+  string expiry_date = 2;
+  int32 user_id = 3;
+  int32 bank_id = 4;
+}
+
+message CreateCardResponse {
+  int64 id = 1;
+  string status = 2;
+}
+
+message UpdateCardRequest {
+  int64 id = 1;
+  string card_number = 2;
+  string expiry_date = 3;
+  int32 user_id = 4;
+  int32 bank_id = 5;
+}
+
+message UpdateCardResponse {
+  string status = 1;
+}
+
+message DeleteCardRequest {
+  int64 id = 1;
+}
+
+message DeleteCardResponse {
+  string status = 1;
+}
